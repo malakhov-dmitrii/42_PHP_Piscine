@@ -1,0 +1,203 @@
+body {
+  background-color: rgb(80, 80, 80);
+  min-width: 1510px;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  position: initial;
+}
+
+form {
+  margin-top: 86px;
+  margin-left: 13px;
+}
+
+h1 {
+  color: red;
+  text-align: center;
+}
+
+#outerouter {
+  margin-left: 190px;
+  min-width: 1510px;
+  max-width: 1510px;
+}
+
+#topbox {
+  background: rgb(145, 145, 145);
+  margin-left: auto;
+  margin-right: auto;
+  width: 1420px;
+  margin-top: 18px;
+  height: 137px;
+  border-radius: 10px;
+}
+
+#cancel_and_reload {
+  float: right;
+  width: 10px;
+  border-radius: 10px;
+}
+
+#day_of_the_42_image {
+  margin-top: 10px;
+  margin-left: 10px;
+  height: 110px;
+}
+
+#reload_image {
+  float: right;
+  margin-right: 10px;
+  margin-top: 10px;
+  height: 20px;
+}
+
+#close_image {
+  float: right;
+  margin-right: 10px;
+  margin-top: 77px;
+  height: 20px;
+}
+
+#magnifying_glass_image {
+  float: right;
+  margin-right: 20px;
+  margin-top: 10px;
+  width: 255px;
+  margin-bottom: -100px;
+}
+
+#side_div {
+  width: 1420px;
+  margin-top: 18px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#border_oeil {
+  border: 5px solid red;
+  border-radius: 5px;
+}
+
+.sideboxes {
+  background: rgb(145, 145, 145);
+  position: relative;
+  height: 425px;
+  width: 140px;
+  border-radius: 10px;
+}
+
+.sideimages_left {
+  position: relative;
+  width: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+}
+
+#sideimages_right_wall {
+  position: relative;
+  width: 120px;
+  height: 70px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+  background-image: url("./resources/brick.jpg");
+  background-repeat: repeat;
+}
+
+.shadow {
+  box-shadow: 10px 10px 15px 000000;
+  /*horizontal_pos, vertical_pos, size, color*/
+}
+
+#middle_box {
+  background: rgb(145, 145, 145);
+  margin-left: auto;
+  margin-right: auto;
+  height: 583px;
+  width: 1021px;
+  border-radius: 10px;
+}
+
+#cluster {
+  width: 1000px;
+  height: 565px;
+  margin: 9px;
+}
+
+#div_box {
+  width: 1510px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 169px;
+  position: static;
+  display: block-line-height;
+}
+
+#search_box {
+  margin-top: 524px;
+  position: absolute;
+  background: rgb(140, 253, 142);
+  height: 169px;
+  width: 519px;
+  margin-left: 190px;
+  margin-right: auto;
+  border-radius: 10px;
+  left: 0px;
+  display: block;
+}
+
+#search_box p {
+  position: relative;
+  top: 20px;
+  left: 10px;
+  display: inline;
+  padding: 5px 0px 0px 0px;
+  font-family: sans-serif;
+  font-size: 16px;
+  letter-spacing: 1px;
+  line-height: 20px;
+}
+
+#form_thingy {
+  margin-top: 4px;
+}
+
+#form_text {
+  box-shadow: 0px 0px 0px 000000;
+  width: 80%;
+  /*horizontal_pos, vertical_pos, size, color*/
+}
+
+#search_box strong {
+  position: relative;
+  display: inline;
+  font-size: 32px;
+  font-weight: normal;
+  font-family: Palatino, serif;
+}
+
+#search_box .floaty_text {
+  position: relative;
+  top: 20px;
+  left: 10px;
+  display: inline;
+  font-family: sans-serif;
+  font-size: 16px;
+  letter-spacing: 1px;
+  text-shadow: 7px 4px 4px rgba(255, 0, 0, 0.6);
+}
+
+#search_box i {
+  position: relative;
+  top: 2px;
+  left: 10px;
+  display: inline;
+  font-family: arial, sans-serif;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
