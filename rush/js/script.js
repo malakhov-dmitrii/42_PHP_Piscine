@@ -2,6 +2,7 @@ const authForm = document.querySelector("#auth-form");
 const addCategoryForm = document.querySelector("#add-category-form");
 const baseURL = 'http://192.168.29.124:8100/rush00/api/';
 const testUser = document.querySelector('#testUser');
+const nav = document.querySelector('nav');
 
 if (authForm) {
     authForm.addEventListener("submit", () => login());
@@ -9,13 +10,20 @@ if (authForm) {
 }
 if (addCategoryForm) addCategoryForm.addEventListener("submit", () => addCategory());
 if (testUser) testUser.addEventListener('click', () => addUser());
+
+function isLoggedIn() {
+    return !!localStorage.getItem('token');
+}
+
 function login() {
     const login = document.querySelector("#login");
     const password = document.querySelector("#password");
 
     let data = new FormData();
-    data.append("login", 'fuckyeaher');
-    data.append("passwd", 'fuckme@mail.com');
+    data.append("login", 'Koklkon');
+    data.append("passwd", '123Qwergdft!');
+    // data.append("login", 'fuckyeaher');
+    // data.append("passwd", 'fuckme@mail.com');
 
     fetch(`${baseURL}loginUser.php`, {
         method: "POST",
@@ -28,12 +36,16 @@ function login() {
                 // TODO Handle auth err
                 console.log("Error");
             } else if (res.token) {
-                console.log(res)
                 localStorage.setItem('token', res.token);
+                localStorage.setItem('isAdmin', res.admin);
                 window.location.href = '../index.html'
             }
         });
     return false;
+}
+
+function logout() {
+    localStorage.removeItem('token');
 }
 
 function addCategory() {
@@ -91,5 +103,16 @@ function addUser() {
 }
 
 function getUsers() {
-    
 }
+
+function renderNav() {
+    console.log('nav')
+    if (Number(localStorage.isAdmin)) {
+        console.log('admin')
+    } else {
+        console.log('not admin')
+    }
+}
+setTimeout(() => {
+    renderNav();
+}, 500);
