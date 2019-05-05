@@ -63,7 +63,7 @@ if (transactions) {
     renderTransactions();
 }
 if (logoutLink) logoutLink.addEventListener('click', () => logout());
-if (adminBody && !isAdmin()) location.pathname = 'rush/index.html';
+if (adminBody && !isAdmin()) location.pathname = '../index.php';
 
 function isLoggedIn() {
     return !!localStorage.getItem('token');
@@ -96,7 +96,7 @@ function login() {
             } else if (res.token) {
                 localStorage.setItem('token', res.token);
                 localStorage.setItem('isAdmin', res.admin);
-                window.location.pathname = 'rush/index.html'
+                window.location.pathname = '../index.php'
             }
         });
     return false;
@@ -106,7 +106,7 @@ function logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('isAdmin');
     cart.clear();
-    location.pathname = 'rush/index.html'
+    location.pathname = '../index.php'
 }
 
 function addCategory() {
@@ -230,7 +230,7 @@ function renderNav() {
     let regularTemplate = `
 <div class="left-side">
     ${isAdmin() ?
-    `
+        `
     <div class="nav-item">
         <a onclick="location.pathname='rush/pages/admin.html'">
             Админка
@@ -238,7 +238,7 @@ function renderNav() {
     </div>
     ` : ''}
     <div class="nav-item">
-        <a onclick="location.pathname = 'rush/index.html'">
+        <a onclick="location.pathname = '../index.php'">
             Главная
         </a>
     </div>
@@ -261,7 +261,7 @@ function renderNav() {
             </a>
         </div>
     ` :
-    `
+        `
     <div class="nav-item">
         <a onclick="location.pathname = 'rush/pages/auth.html'">
             Авторизация
@@ -273,7 +273,7 @@ function renderNav() {
     let adminTemplate = `
     <div class="left-side">
         <div class="nav-item">
-            <a href="../index.html">
+            <a href="../index.php">
                 Главная
             </a>
         </div>
@@ -301,7 +301,7 @@ function renderNav() {
             </a>
         </div>
     ` :
-    `
+        `
     <div class="nav-item">
         <a href="../pages/auth.html">
             Авторизация
@@ -312,7 +312,7 @@ function renderNav() {
 `;
 
     let nav = document.querySelector('nav');
-    location.pathname.indexOf('index.html')>= 0
+    location.pathname.indexOf('index.php')>= 0
     || location.pathname.indexOf('shop.html')>= 0
     || location.pathname.indexOf('product.html')>= 0
     || location.pathname.indexOf('cart.html') >= 0

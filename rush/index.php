@@ -12,7 +12,7 @@
     <nav>
         <div class="left-side">
             <div class="nav-item">
-                <a href="index.html">
+                <a href="index.php">
                     Главная
                 </a>
             </div>
