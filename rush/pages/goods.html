@@ -3,8 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <title>Товары</title>
-</head>
-<body>
 
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,600&amp;subset=cyrillic" rel="stylesheet">
+    <link rel="stylesheet" href="../css/carousel.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body id="admin-page">
+<nav></nav>
+
+<main>
+    <h2>Добавить товар</h2>
+
+    <form id="add-good-form" class="add-category-form">
+        <input id="title" class="input-field" type="text" placeholder="Название"><br>
+        <input id="img" class="input-field" type="url" placeholder="URL обложки"><br>
+        <input id="description" class="input-field" type="text" placeholder="Описание"><br>
+        <input id="quantity" class="input-field" type="number" min="1" placeholder="Количество"><br>
+        <input id="value" class="input-field" type="number" min="125" placeholder="Цена в Rush00 баллах"><br>
+        <select name="categories" id="categories-select" multiple>
+            <option value="fruits">Fruits</option>
+        </select>
+        <button id="submit-add-good" class="action-button accent">Отправить</button>
+        <button class="action-button info" id="back"><a href="../index.html">Назад</a></button>
+    </form>
+
+    <hr>
+
+    <h2>Все товары</h2>
+    <div class="goods-list">
+    </div>
+</main>
+<script src="../js/script.js"></script>
 </body>
 </html>

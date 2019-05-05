@@ -12,13 +12,14 @@
         <form action="#" id="auth-form" class="auth-form">
             <h1>Авторизация</h1>
 
-            <input id="login" class="input-field" type="text" placeholder="Никнейм" required minlength="6"><br>
-            <input id="password" class="input-field" type="password" placeholder="Пароль" required minlength="6"><br>
-            <input type="submit" class="action-button accent" value="Отправить">
+            <input id="login" class="input-field" type="text" placeholder="Никнейм" required minlength="3"><br>
+            <input id="password" class="input-field" type="password" placeholder="Пароль" required minlength="3"><br>
+            <button class="action-button accent" id="onLogin">Отправить</button>
+            <button class="action-button warn" onclick="location.pathname='rush/pages/register.html'">Регистрация</button>
             <button class="action-button info" id="back"><a href="../index.html">Назад</a></button>
         </form>
-        <a id="test">test</a>
     </main>
+
     <script src="../js/script.js"></script>
 
 </body>

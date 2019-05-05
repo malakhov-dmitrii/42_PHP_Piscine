@@ -6,50 +6,32 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,600&amp;subset=cyrillic" rel="stylesheet">
     <link rel="stylesheet" href="../css/carousel.css">
     <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
 </head>
-<body>
+<body id="admin-page">
 <nav>
-    <div class="left-side">
-        <div class="nav-item">
-            <a href="../index.html">
-                Главная
-            </a>
-        </div>
-        <div class="nav-item">
-            <a href="goods.html">
-                Товары
-            </a>
-        </div>
-        <div class="nav-item">
-            <a href="categories.html">
-                Категории
-            </a>
-        </div>
-        <div class="nav-item">
-            <a href="users.html">
-                Пользователи
-            </a>
-        </div>
-    </div>
-    <div class="right-side">
-        <div class="nav-item">
-            <a class="logout">
-                Выйти
-            </a>
-        </div>
-    </div>
 </nav>
 
 <main>
     <h2>Добавить пользователя</h2>
 
-    <form action="#" id="add-category-form" class="add-category-form">
-        <input id="title" class="input-field" type="text" placeholder="Название категории"><br>
-        <input id="img" class="input-field" type="url" placeholder="URL обложки"><br>
-        <input type="submit" class="action-button accent" value="Отправить">
+    <form action="#" id="add-user-form" class="add-category-form">
+        <input id="add-user-login" class="input-field" type="text" placeholder="Логин"><br>
+        <input id="add-user-email" class="input-field" type="email" placeholder="Email"><br>
+        <input id="add-user-name" class="input-field" type="text" placeholder="Имя"><br>
+        <input id="add-user-lastname" class="input-field" type="text" placeholder="Отчество"><br>
+        <input id="add-user-password" class="input-field" type="password" placeholder="Пароль"><br>
+        <input type="submit" id="addUser" class="action-button accent" value="Отправить">
         <button class="action-button info" id="back"><a href="../index.html">Назад</a></button>
-        <button id="testUser">TEst</button>
     </form>
+
+    <hr>
+
+    <h2>Все пользователи</h2>
+    <div class="users-list">
+
+    </div>
 </main>
 <script src="../js/script.js"></script>
 
