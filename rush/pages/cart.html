@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Cart</title>
+    <title>Корзина</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,600&amp;subset=cyrillic" rel="stylesheet">
     <link rel="stylesheet" href="../css/carousel.css">
     <link rel="stylesheet" href="../css/style.css">
@@ -18,6 +18,8 @@
     </div>
     <div class="doPurchase">
         <button class="action-button accent">Купить</button>
+        <button class="action-button warn" onclick="cart.clear()">Очистить корзину</button>
+        <div class="total"></div>
     </div>
 </main>
     <script src="../js/script.js"></script>

@@ -226,13 +226,6 @@ function getUsers() {
 }
 
 function renderNav() {
-    console.log('nav')
-    if (Number(localStorage.isAdmin)) {
-        console.log('admin')
-    } else {
-        console.log('not admin')
-    }
-
     let regularTemplate = `
 <div class="left-side">
     ${isAdmin() ?
@@ -547,7 +540,21 @@ class Cart {
     }
 
     removeItem(id) {
-        this._cart.filter(item => item.id !== id);
+        this._cart = this._cart.filter(item => Number(item.id) !== id);
+        localStorage.setItem('cart', JSON.stringify(this._cart));
+        renderNav();
+        this.renderCart()
+    }
+
+    reduceItem(id) {
+        console.log(id)
+    }
+
+    inrceaseItem(id) {
+        this._cart.filter(item => Number(item.id) === id)[0] = this._cart.filter(item => Number(item.id) === id)[0].count++;
+        localStorage.setItem('cart', JSON.stringify(this._cart));
+        renderNav();
+        this.renderCart()
     }
 
     getItems() {
@@ -557,11 +564,22 @@ class Cart {
     clear() {
         this._cart = [];
         localStorage.setItem('cart', JSON.stringify(this._cart));
+        renderNav();
+        this.renderCart()
+    }
+
+    renderTotal() {
+        let total = document.querySelector('.total');
+        let sum = 0;
+        this._cart.forEach(item => {
+            sum += Number(item.count) * Number(item.prod_value)
+        });
+
+        total.innerHTML = `Итого: ${sum}`
     }
 
     renderCart() {
         let container = document.querySelector('.cart-container');
-        console.log(this.getItems())
         let rendered = this.getItems().map(item => {
             return `
             <div class="cart-item">
@@ -577,10 +595,10 @@ class Cart {
             <div class="total-price">
                 ${item.count * Number(item.prod_value)}
             </div>
-            <div class="add"><button class="action-button accent">+</button></div>
-            <div class="remove"><button class="action-button warn">-</button></div>
+            <div class="add"><button class="action-button accent" onclick="cart.inrceaseItem(${item.id})">+</button></div>
+            <div class="remove"><button class="action-button warn" onclick="cart.reduceItem(${item.id})">-</button></div>
             <div class="clear">
-                <i class="material-icons">delete</i>
+                <i class="material-icons" onclick="cart.removeItem(${item.id})">delete</i>
             </div>
         </div>
             `
@@ -588,5 +606,6 @@ class Cart {
 
         container.innerHTML = '';
         rendered.forEach(item => container.innerHTML += item);
+        this.renderTotal();
     }
 }

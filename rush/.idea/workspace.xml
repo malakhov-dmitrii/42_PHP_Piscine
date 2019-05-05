@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="730f02cb-24cf-4314-85ba-fa3f675557ff" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.sass" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/cart.html" afterDir="false" />
     </list>
@@ -25,8 +21,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/js/script.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="750">
-                  <caret line="568" column="46" selection-start-line="568" selection-start-column="46" selection-end-line="568" selection-end-column="46" />
+                <state relative-caret-position="601">
+                  <caret line="577" column="40" selection-start-line="577" selection-start-column="40" selection-end-line="577" selection-end-column="40" />
                   <folding>
                     <element signature="e#1426#1540#0" />
                     <element signature="e#1562#1655#0" />
@@ -62,7 +58,6 @@
                     <element signature="n#!!block;n#renderUsers#0" />
                     <element signature="n#!!block;n#f#0" />
                     <element signature="n#!!block;n#renderProductInfo#0" />
-                    <element signature="n#!!block;n#addToCart#0;n#Cart#0" />
                   </folding>
                 </state>
               </provider>
@@ -71,8 +66,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/pages/cart.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="225">
-                  <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
+                <state relative-caret-position="315">
+                  <caret line="21" column="27" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
                 </state>
               </provider>
             </entry>
@@ -84,8 +79,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/css/style.sass">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="825">
-                  <caret line="219" column="10" lean-forward="true" selection-start-line="219" selection-start-column="10" selection-end-line="219" selection-end-column="10" />
+                <state relative-caret-position="1080">
+                  <caret line="236" column="22" selection-start-line="236" selection-start-column="22" selection-end-line="236" selection-end-column="22" />
                 </state>
               </provider>
             </entry>
@@ -143,9 +138,9 @@
         <option value="$PROJECT_DIR$/pages/users.html" />
         <option value="$PROJECT_DIR$/pages/auth.html" />
         <option value="$PROJECT_DIR$/pages/register.html" />
+        <option value="$PROJECT_DIR$/css/style.sass" />
         <option value="$PROJECT_DIR$/pages/cart.html" />
         <option value="$PROJECT_DIR$/js/script.js" />
-        <option value="$PROJECT_DIR$/css/style.sass" />
       </list>
     </option>
   </component>
@@ -247,12 +242,12 @@
       <workItem from="1556988194752" duration="5295000" />
       <workItem from="1556994598196" duration="4362000" />
       <workItem from="1557050583084" duration="8158000" />
-      <workItem from="1557062743758" duration="15766000" />
+      <workItem from="1557062743758" duration="17801000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39188000" />
+    <option name="totallyTimeSpent" value="41223000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="985" y="23" width="1572" height="1337" extended-state="0" />
@@ -358,17 +353,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/css/style.sass">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1080">
+          <caret line="236" column="22" selection-start-line="236" selection-start-column="22" selection-end-line="236" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pages/cart.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
+        <state relative-caret-position="315">
+          <caret line="21" column="27" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/script.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="750">
-          <caret line="568" column="46" selection-start-line="568" selection-start-column="46" selection-end-line="568" selection-end-column="46" />
+        <state relative-caret-position="601">
+          <caret line="577" column="40" selection-start-line="577" selection-start-column="40" selection-end-line="577" selection-end-column="40" />
           <folding>
             <element signature="e#1426#1540#0" />
             <element signature="e#1562#1655#0" />
@@ -404,15 +406,7 @@
             <element signature="n#!!block;n#renderUsers#0" />
             <element signature="n#!!block;n#f#0" />
             <element signature="n#!!block;n#renderProductInfo#0" />
-            <element signature="n#!!block;n#addToCart#0;n#Cart#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/style.sass">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="825">
-          <caret line="219" column="10" lean-forward="true" selection-start-line="219" selection-start-column="10" selection-end-line="219" selection-end-column="10" />
         </state>
       </provider>
     </entry>
