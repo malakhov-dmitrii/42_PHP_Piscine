@@ -286,4 +286,17 @@ input:focus {
   width: 150px;
 }
 
+.transaction-item {
+  display: flex;
+  justify-content: space-between;
+}
+.transaction-item div {
+  width: 150px;
+}
+
+.transaction-item.header {
+  font-weight: bold;
+  border-bottom: 1px solid;
+}
+
 /*# sourceMappingURL=style.css.map */

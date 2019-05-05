@@ -1,4 +1,5 @@
-const baseURL           = 'http://192.168.29.124:8100/rush00/api/';
+// const baseURL           = 'http://192.168.29.124:8100/rush00/api/';
+const baseURL           = 'http://localhost:8100/rush/api/';
 
 const authForm          = document.querySelector("#auth-form");
 const addCategoryForm   = document.querySelector("#add-category-form");
@@ -20,7 +21,7 @@ const addUserPassword   = document.querySelector('#add-user-password');
 const addUserName       = document.querySelector('#add-user-name');
 const addUserLastname   = document.querySelector('#add-user-lastname');
 const addUserEmail      = document.querySelector('#add-user-email');
-
+const transactions      = document.querySelector('.transactions');
 let cart;
 
 if (authForm) {
@@ -57,6 +58,9 @@ if (goodsList) {
 }
 if (productInfo) {
     renderProductInfo();
+}
+if (transactions) {
+    renderTransactions();
 }
 if (logoutLink) logoutLink.addEventListener('click', () => logout());
 if (adminBody && !isAdmin()) location.pathname = 'rush/index.html';
@@ -124,10 +128,7 @@ function addCategory() {
         .then(res => res.json())
         .then(res => res.response)
         .then(res => {
-            console.log(res);
-            getCategories(0);
-            getCategories(1);
-            getCategories(2);
+            renderCategories();
         });
     return false;
 }
@@ -494,13 +495,50 @@ function renderProductInfo() {
                             Цена: ${item.prod_value}
                         </div>
                         <div class="action">
-                            <button class="action-button accent">Добавить в корзину</button>
+                            <button class="action-button accent" onclick="cart.addItem(${item.id})">Добавить в корзину</button>
                         </div>
                     </div>
                 </div>
             </div>
                 `
         })
+}
+
+function getTransactions() {
+    const token = localStorage.getItem('token');
+
+    let data = new FormData();
+    data.append('token', token);
+
+    return fetch(`${baseURL}getTransactions.php`, {
+        method: "POST",
+        body: data
+    })
+        .then(res => res.json())
+        .then(res => res.response.products)
+}
+
+function renderTransactions() {
+    getTransactions()
+        .then(res => {
+            let templates = res.map(item => {
+                return `
+                <div class="transaction-item">
+                    <div class="id">${item.id}</div>
+                    <div class="user-id">${item.user_id}</div>
+                    <div class="comment">${item.commentary}</div>
+                    <div class="status">${item.status}</div>
+                    <div class="payment">${item.payment}</div>
+                </div>
+                `;
+            });
+
+            let container = document.querySelector('.transactions-list');
+
+            container.innerHTML = '';
+
+            templates.forEach(item => container.innerHTML += item)
+        });
 }
 
 setTimeout(() => {
@@ -547,11 +585,20 @@ class Cart {
     }
 
     reduceItem(id) {
-        console.log(id)
+        if (this._cart.filter(item => Number(item.id) === id)[0].count > 1) {
+            this._cart.filter(item => Number(item.id) === id)[0] = this._cart.filter(item => Number(item.id) === id)[0].count--;
+        } else {
+            this.removeItem(id)
+        }
+        localStorage.setItem('cart', JSON.stringify(this._cart));
+        renderNav();
+        this.renderCart()
     }
 
     inrceaseItem(id) {
-        this._cart.filter(item => Number(item.id) === id)[0] = this._cart.filter(item => Number(item.id) === id)[0].count++;
+        if (this._cart.filter(item => Number(item.id) === id)[0].count <= Number(this._cart.filter(item => Number(item.id) === id)[0].quantity)) {
+            this._cart.filter(item => Number(item.id) === id)[0] = this._cart.filter(item => Number(item.id) === id)[0].count++;
+        }
         localStorage.setItem('cart', JSON.stringify(this._cart));
         renderNav();
         this.renderCart()
@@ -606,6 +653,45 @@ class Cart {
 
         container.innerHTML = '';
         rendered.forEach(item => container.innerHTML += item);
+
+        if (!rendered.length) {
+            container.innerHTML = 'Здесь пока ничего нет'
+        }
         this.renderTotal();
+    }
+
+    purchase() {
+        if (!this._cart.length) alert('Вы ничего не добавили!');
+        if (!isLoggedIn()) alert('Для совершения покупки вам необходимо авторизоваться');
+
+        let cart = [];
+        this._cart.forEach(item => {
+            cart.push({
+                id: item.id,
+                count: item.count
+            })
+        });
+
+        const token = localStorage.getItem('token');
+
+        let data = new FormData();
+        data.append('token', token);
+        data.append('prod', JSON.stringify(cart));
+        data.append('commentary', 'description');
+        data.append('payment', '1');
+
+        fetch(`${baseURL}addTransaction.php`, {
+            method: "POST",
+            body: data
+        })
+            .then(res => res.json())
+            .then(res => {
+                if (res.response.status === 'Ok') {
+                    alert('Success!');
+                    location.pathname = 'rush/pages/shop.html';
+                } else {
+                    alert('Во время обработки заказа произошла ошибка');
+                }
+            });
     }
 }
