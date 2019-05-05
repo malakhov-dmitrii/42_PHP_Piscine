@@ -6,6 +6,7 @@ const addGoodForm       = document.querySelector('#add-good-form');
 const submitAddGoodForm = document.querySelector('#submit-add-good');
 const goodsList         = document.querySelector('#goods-list');
 const productInfo       = document.querySelector('.product-info');
+const cartList          = document.querySelector('.cart-container');
 
 const addUserBtn        = document.querySelector('#addUser');
 const usersList         = document.querySelector('.users-list');
@@ -512,6 +513,7 @@ function renderProductInfo() {
 setTimeout(() => {
     cart = new Cart(13);
     renderNav();
+    if (cartList) cart.renderCart();
 }, 50);
 
 class Cart {
@@ -558,6 +560,33 @@ class Cart {
     }
 
     renderCart() {
+        let container = document.querySelector('.cart-container');
+        console.log(this.getItems())
+        let rendered = this.getItems().map(item => {
+            return `
+            <div class="cart-item">
+            <div class="img">
+                <img src="${item.product_image}" alt="">
+            </div>
+            <div class="title">
+                ${item.prod_name}
+            </div>
+            <div class="quantity">
+                ${item.count}
+            </div>
+            <div class="total-price">
+                ${item.count * Number(item.prod_value)}
+            </div>
+            <div class="add"><button class="action-button accent">+</button></div>
+            <div class="remove"><button class="action-button warn">-</button></div>
+            <div class="clear">
+                <i class="material-icons">delete</i>
+            </div>
+        </div>
+            `
+        })
 
+        container.innerHTML = '';
+        rendered.forEach(item => container.innerHTML += item);
     }
 }

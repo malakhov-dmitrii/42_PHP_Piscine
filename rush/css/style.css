@@ -265,4 +265,25 @@ input:focus {
   width: 100%;
 }
 
+.cart-item {
+  margin: 5px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid grey;
+  padding: 20px;
+}
+.cart-item .title {
+  width: 150px;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+.cart-item .total-price {
+  width: 150px;
+  font-style: italic;
+}
+.cart-item img {
+  width: 150px;
+}
+
 /*# sourceMappingURL=style.css.map */
